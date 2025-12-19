@@ -1,0 +1,28 @@
+/node_modules
+
+# build artifacts
+/dist
+/build
+/.web-ext-artifacts
+
+# misc
+.DS_Store
+Thumbs.db
+*.pem
+
+# debug
+npm-debug.log*
+*.log
+logs
+
+# env files
+.env*
+!.env.example
+
+# Editor / IDE
+.idea/
+.vscode/*
+!.vscode/extensions.json
+
+# typescript
+*.tsbuildinfo

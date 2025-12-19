@@ -1,0 +1,52 @@
+{
+  "name": "dngm-recruiting-intel-extension",
+  "version": "0.0.1",
+  "private": true,
+  "license": "AGPL-3.0-or-later",
+  "description": "Privacy-first hiring signals while browsing company pages.",
+  "engines": {
+    "node": ">=22",
+    "npm": ">=11.6.4"
+  },
+  "packageManager": "npm@11.6.4",
+  "type": "module",
+  "scripts": {
+    "dev:ui": "vite",
+    "dev:scripts": "tsup --watch",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "check": "tsc --noEmit",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "verify": "npm run lint && npm run check",
+
+    "build:ui": "vite build",
+    "build:scripts": "tsup",
+    "build:chrome": "npm run build:ui && npm run build:scripts && node scripts/build.mjs chrome",
+    "build:firefox": "npm run build:ui && npm run build:scripts && node scripts/build.mjs firefox",
+    "run:firefox": "npm run build:firefox && web-ext run --source-dir dist/firefox --keep-profile-changes"
+  },
+  "dependencies": {
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "webextension-polyfill": "0.12.0"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.280",
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@typescript-eslint/eslint-plugin": "^8",
+    "@typescript-eslint/parser": "^8",
+    "@vitejs/plugin-react-swc": "^3",
+    "eslint": "^9",
+    "eslint-plugin-import": "^2",
+    "eslint-plugin-react": "^7",
+    "eslint-plugin-react-hooks": "^5",
+    "prettier": "^3.7.4",
+    "tsup": "^8",
+    "typescript": "^5",
+    "vite": "^5",
+    "web-ext": "^8"
+  }
+}

@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile"
   },
   "remoteUser": "node",
-  "postCreateCommand": "corepack enable && pnpm -v && pnpm install",
+  "postCreateCommand": "bash -lc 'set -e; echo \"node=$(node -v)\"; echo \"npm(before)=$(npm -v)\"; npm -v; if [ -f package-lock.json ]; then npm ci; elif [ -f package.json ]; then npm install; else echo \"package.json not found; skipping install\"; fi'",
   "customizations": {
     "vscode": {
       "settings": {
